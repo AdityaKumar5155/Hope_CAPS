@@ -12,4 +12,6 @@ video{
     /* animation: width 1s; */
     width:400px;
     height:300px;
+    border-radius: 10%;
+    padding: 2%;
 }
