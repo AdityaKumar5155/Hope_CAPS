@@ -6,7 +6,7 @@ const myVideo = document.createElement('video');
 var peer = new Peer(undefined, {
     path : '/peerjs',
     host : '/',
-    port : '4444'
+    port : '443'
 });
 
 navigator.mediaDevices.getUserMedia({
