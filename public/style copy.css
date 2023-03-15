@@ -1,0 +1,119 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    display: block;
+    overflow: hidden;
+    background-image: url("https://th.bing.com/th/id/R.0db7d4a3e435071c9db28d33fec08d9b?rik=yPQXVsrMLV%2f6bg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f8%2fb%2f0%2f1520379-best-medical-wallpaper-backgrounds-1920x1080-for-phone.jpg&ehk=EUOnTLe1ODEoy02LgK7qu8aOxJcOlcEwJHyk34jQ7n4%3d&risl=&pid=ImgRaw&r=0");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+#wrapper{
+    margin-top:100px!important;
+    display:block;
+    padding-top: 5px;
+    margin:auto;
+    justify-content: center;
+    width: 90%;
+    /* background-color: rgba(0,0,137,0.8); */
+    border-radius: 10% 0% 10% 0%;
+    /* height:100vh; */
+}
+#video-grid{
+    position: relative;
+    display :flex;
+    justify-content: center;
+    margin:auto;
+    width : 80%;
+    /* height : 80vh; */
+    align-items: center;
+    
+    padding-top: 10;
+    border-radius: 20px 0px 20px 0px;
+}
+#time{
+    margin-top: 25px !important;
+    width: 50%;
+    padding: 10px;
+    margin:auto;
+    border-radius : 40px;
+    background-color: aquamarine;
+    text-align: center;
+    font-family :'Courier New', Courier, monospace;
+    font-weight : bold;
+    font-size:90%;
+}
+video{
+    /* animation: width 1s; */
+    /* width:25%; */
+    margin : 0% 1%;
+    transition: width border-radius 1s;
+    object-fit: cover;
+}
+#video1{
+    border-radius: 10% 10% 0% 0%;
+    height : inherit;
+    /* position: relative; */
+}
+#video2{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    width : 100%;
+    transition: width 1s;
+    border-radius: 10% 0% 10% 0%;
+    /* display:none; */
+}
+#control{
+    position: absolute;
+    bottom: 0;
+    display : hidden;
+    transition: all 1s;
+    width:70%;
+    margin: 0% 15% -7% 15%;
+    /* background-color: rgba(255,255,255,0.8); */
+    padding:20px 80px;
+    /* border-radius: 20px 20px 0px 0px; */
+    border-radius : 50%;
+    height: 200px;
+}
+#control:hover{
+    display:flex;
+}
+#Status{
+    width:100%;
+    padding:20px;
+    background-color: green;
+    text-align:center;
+    font-family :'Courier New', Courier, monospace;
+    font-weight : bold;
+}
+#control div{
+    
+    width:60px;
+    height: 60px;
+    border: 2px solid black;
+    /* margin:auto; */
+    text-align: center;
+    border-radius:30px;
+    line-height: 50px;
+    font-size:80%;
+    background-color: blueviolet;
+}
+#disconnect,#download{
+    /* background-image: '\\public\\call.png'; */
+    /* color : red; */
+    /* background-color: yellow; */
+    margin: 2% auto;
+    background-color: blueviolet;
+}
+#audio,#chat{
+    margin: 1% auto;
+    background-color: blueviolet;
+}
+#video{
+    margin: 0 auto;
+    background-color: blueviolet;
+}

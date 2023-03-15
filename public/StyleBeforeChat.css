@@ -16,57 +16,12 @@ header{
     width:100%;
 }
 #wrapper{
-    display: flex;
-    justify-content: center;
-    margin-top: 3%;
-}
-#videoWrapper{
     /* margin : 10%; */
     width : 60%;
-    /* margin : 50px 10% 0% 10%; */
+    margin : 50px 20% 0% 20%;
     position: relative;
     display : flex;
     justify-content: center;
-}
-#chatdiv{
-    width:0px;
-    position: relative;
-    background-color: white ;
-    height :inherit;
-    display: block;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
-    border-radius  : 25px 25px 20px 20px;
-    transition: width 0.5s;
-    overflow: hidden;
-}
-#chatTitle{
-    position: absolute;
-    top:0;
-    height:50px;
-    background-color: lightblue ;
-    width:100%;
-    border-radius: 25px;
-    text-align : center;
-    font-family :'Courier New', Courier, monospace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color : white;
-    font-size: 200%;
-}
-#chatBody{
-    position: absolute;
-    bottom:0;
-    width:100%;
-}
-input{
-    position: absolute;
-    bottom:0;
-    width : 100%;
-    border-radius: 20px;
-    height: 40px;
-    padding: 0 5%;
 }
 video{
     object-fit : cover;
@@ -75,7 +30,7 @@ video{
 #video-grid {
     margin : 0 auto;
     position: relative;
-    width : 100%;
+    width : 95%;
     height : 80vh;
     /* background-color: lightblue; */
     padding: 0% 2.5%;
@@ -85,16 +40,15 @@ video{
     position  : absolute;
     bottom :0;
     right: 2.5%;
-    width : 100%;
+    width : 95%;
     height : inherit;
     transition: width 1s;
-    
 }
 #video1{
     width : 100%;
     height : inherit;
-    background-image : "connecting.jpg";
-    border-radius : 40px 0% 40px 0%;
+    background-color:white;
+    border-radius : 15% 0% 40px 0%;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     
 }
@@ -134,7 +88,7 @@ img{
     border-radius: 60px;
 }
 #control div.title{
-    /* color : white; */
+    color : white;
     background-color: deepskyblue;
     border-radius: 50%;
 }

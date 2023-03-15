@@ -5,21 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="StyleBeforeChat.css"> -->
     <script src="http://localhost:4444/socket.io/socket.io.js"></script>
-    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-<script src="https://kit.fontawesome.com/c7237ef290.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="peerjs.min.js"></script>
+    <!-- <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
+<!-- <script src="https://kit.fontawesome.com/c7237ef290.js" crossorigin="anonymous"></script> -->
     <title>Consultation Framework</title>
     <script>
         const ROOM_ID = "<%= roomId %>";
+        function toggleChat(){
+            const chat = document.getElementById("chatdiv");
+            console.log(chat);
+            if (chat.style.width == "0px")
+                chat.style.width = "25%";
+            else
+                chat.style.width = "0px";
+        }
         </script>
 </head>
 <body>
+    <header>
+
+    </header>
     <div id="wrapper">
-        <!-- <div id = "time">
-            Your queue position : 3
-        </div> -->
+    <div id="videoWrapper">
+    
     <div id="video-grid">
         <video id="video1">
             
@@ -29,15 +40,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         </video>
         
     </div>
-    <!-- <div id="Status">Connecting....</div>
     <div id="control">
-        <div id="disconnect">Disconnect</div>
-        <div id="audio">audio</div>
-        <div id="video">video</div>
-        <div id="chat">chat</div>
-        <div id="download">download</div>
-        <div id="pay">pay</div>
-    </div> -->
+        <div id="disconnect" title="Disconnect"><img src="https://cdn3.iconfinder.com/data/icons/basicolor-essentials/24/036_phone_call_hang-512.png" alt=""></div>
+        <div id="audio" title="Mute Audio"><img src="https://th.bing.com/th/id/OIP.8XZ1QoeWnJWC8mBMjfzKxwHaHa?pid=ImgDet&rs=1" alt=""></div>
+        <div id="video" title="Stop Video" ><img src="https://cdn.pixabay.com/photo/2016/04/30/22/46/video-1364122_960_720.png" alt=""></div>
+        <div id="chat" title="Enable Chat" ><img onclick="toggleChat()" src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Chat-2-1024.png" alt=""></div>
+        <div id="download" title="Download Prescription"><img src="https://th.bing.com/th/id/OIP.c5PCmzGW7OZkrhyo0ls3XAHaH_?pid=ImgDet&rs=1" alt=""></div>
+        <!-- <div id="pay">pay</div> -->
+    </div>
+    </div>
+    <div id="chatdiv">
+        <div id="chatTitle">CHAT</div>
+        <div id="chatBody">
+            <input type="text" name="message" placeholder="Write something here....">
+        </div>
+</div>
+    <!-- <div id="Status">Connecting....</div> -->
+    
     <!-- <div id="chatbox">
         <span id="title">chat</span>
         <div id="messages">
@@ -46,7 +65,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             </ul>
         </div>
     </div> -->
-    </div>
     
 </body>
 <script type="text/javascript" src="script.js"></script>

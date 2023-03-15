@@ -1,6 +1,6 @@
 const socket = io('/');
 let myVideoStream;
-const myVideo = document.getElementById('video1');
+const myVideo = document.getElementById('video2');
 // myVideo.muted = false;
 var peer = new Peer(undefined, {
     path : '/peerjs',
@@ -13,18 +13,19 @@ navigator.mediaDevices.getUserMedia({
     audio: true
 }).then(stream => {
     myVideoStream = stream;
-    addVideoStream(myVideo, stream);
+    // addVideoStream(myVideo, stream);
+    // myVideo.setAttribute('style', 'width:25%; height :auto;');
     myVideo.srcObject = stream;
-    myVideo.setAttribute('style', 'width : 100%; height : 80vh;');
     myVideo.addEventListener('loadedmetadata', () => {
         myVideo.play();
     })
 
     peer.on('call', call => {
         call.answer(stream);
-        myVideo.setAttribute('style', "width : 70%;");
-        const video = document.getElementById('video2');
+        const video = document.getElementById('video1');
+        myVideo.setAttribute('style', 'width:25%; height :auto;');
         call.on('stream', userVideoStream => {
+            // myVideo.setAttribute('style', 'width:25%; height :auto;');
             addVideoStream(video, userVideoStream);
         })
     })
@@ -43,9 +44,9 @@ peer.on('open', (id) => {
 
 const connecToNewUser = (userId, stream) => {
     const call = peer.call(userId,stream);
-    const video = document.getElementById('video2');
-    const video1 = document.getElementById('video1');
-    video1.setAttribute('style', "width : 70%;");
+    const video = document.getElementById('video1');
+    const video2 = document.getElementById('video2');
+    // video1.setAttribute('style', "width : 100%;");
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream);
     })
@@ -54,7 +55,7 @@ const connecToNewUser = (userId, stream) => {
 const addVideoStream = (video, stream) => {
     video.srcObject = stream;
     video.style.display = 'block';
-    video.setAttribute('style', ' position:relative; top : 0 ; right : 0;width : 70%; object-fit: cover;');
+    //video.setAttribute('style', ' position:absolute; bottom : 0 ; right : 0;width : 25%; object-fit: cover;');
     video.addEventListener('loadedmetadata', () => {
         video.play(); 
     })
