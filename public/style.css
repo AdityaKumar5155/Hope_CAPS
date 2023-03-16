@@ -19,6 +19,7 @@ header{
     display: flex;
     justify-content: center;
     margin-top: 3%;
+    height : 80vh;
 }
 #videoWrapper{
     /* margin : 10%; */
@@ -29,7 +30,7 @@ header{
     justify-content: center;
 }
 #chatdiv{
-    width:0px;
+    width:500px;
     position: relative;
     background-color: white ;
     height :inherit;
@@ -137,4 +138,10 @@ img{
     /* color : white; */
     background-color: deepskyblue;
     border-radius: 50%;
+}
+#messages{
+    width: 100%;
+    text-align:center;
+    position: absolute;
+    bottom : 50px;
 }

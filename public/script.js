@@ -61,3 +61,19 @@ const addVideoStream = (video, stream) => {
     })
     // myVideo.append(video);
 }
+
+let msg = $("#message");
+console.log(msg);
+
+$('html').keydown((e) => {
+    if (e.which==13 && msg.val().length!==0 ){
+        socket.emit('message', msg.val());
+        console.log(msg.val())
+        msg.val('');
+    }
+})
+
+socket.on('createMessage', message => {
+    console.log('this is coming from server',  message);
+    $('#messages').append(`<li class='message' > chat : ${message} </li>`)
+})
