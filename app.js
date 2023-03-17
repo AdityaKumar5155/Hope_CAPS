@@ -7,7 +7,7 @@ const port = 4444;
 const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, { debug: true });
 
-app.set('views', './views');
+app.set('views', '/views');
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use('/peerjs', peerServer);
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:room', (req, res) => {
-    res.render('room.ejs', { roomId: req.params.room})
+    res.render('room', { roomId: req.params.room})
 })
 
 io.on('connection', socket => {
