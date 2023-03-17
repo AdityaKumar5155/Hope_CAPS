@@ -3,14 +3,15 @@ let myVideoStream;
 const myVideo = document.getElementById('video2');
 // myVideo.muted = false;
 let doc_pat = prompt('doc or pat?');
-let id;
+let doc_id;
+let pat_id;
 if (doc_pat == 'doc') {
-    id = prompt('doctor id?');
+    doc_id = prompt('doctor id?');
 }
 else{
-    id = prompt('patient id?');
+    pat_id = prompt('patient id?');
 }
-var peer = new Peer(id, {
+var peer = new Peer(pat_id, {
     path : '/peerjs',
     host : '/',
     port : '4444'

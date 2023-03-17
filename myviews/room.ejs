@@ -8,6 +8,7 @@
     <!-- <link rel="stylesheet" href="StyleBeforeChat.css"> -->
     <script src="http://localhost:4444/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="peerjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
 <!-- <script src="https://kit.fontawesome.com/c7237ef290.js" crossorigin="anonymous"></script> -->
@@ -52,7 +53,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     <div id="chatdiv">
         <div id="chatTitle">CHAT</div>
         <div id="chatBody">
-            <input type="text" name="message" placeholder="Write something here....">
+            <ul id="messages">
+                
+            </ul>
+            <input type="text"  id="message" name="message" placeholder="Write something here....">
         </div>
 </div>
     <!-- <div id="Status">Connecting....</div> -->
