@@ -32,11 +32,13 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('user-connected', (userId) => {
         connecToNewUser(userId, stream);
+        // messaging(userId)
     })
 })
 peer.on('open', (id) => {
     socket.emit('join-room', ROOM_ID , id);
     console.log(id);
+
 })
 
 
@@ -62,18 +64,18 @@ const addVideoStream = (video, stream) => {
     // myVideo.append(video);
 }
 
-let msg = $("#message");
-console.log(msg);
+    let msg = $("#message");
+    console.log(msg);
 
-$('html').keydown((e) => {
-    if (e.which==13 && msg.val().length!==0 ){
-        socket.emit('message', msg.val());
-        console.log(msg.val())
-        msg.val('');
-    }
-})
+    $('html').keydown((e) => {
+        if (e.which==13 && msg.val().length!==0 ){
+            socket.emit('message', msg.val());
+            console.log(msg.val())
+            msg.val('');
+        }
+    })
 
-socket.on('createMessage', message => {
-    console.log('this is coming from server',  message);
-    $('#messages').append(`<li class='message' > chat : ${message} </li>`)
-})
+    socket.on('createMessage', message => {
+        console.log('this is coming from server',  message);
+        $('#messages').append(`<li class='message' > chat : ${message} </li>`)
+    })
