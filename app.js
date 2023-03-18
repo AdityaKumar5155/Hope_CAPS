@@ -23,10 +23,21 @@ io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
         socket.join(roomId);
         socket.to(roomId).emit('user-connected', userId);
-        socket.on('message', (message) => {
-            io.to(roomId).emit('createMessage', message);
+        socket.on('message', (message,senderId) => {
+            console.log(senderId);
+            io.to(roomId).emit('createMessage', message,senderId);
         })
+        socket.on('disconnect', () => {
+            console.log('disconnect', userId);
+            io.to(roomId).emit('user-disconnected', userId);
+        })
+        // socket.on('unconnect', () => {
+        //     socket.disconnect();
+        //     console.log('unconnect', userId);
+        //     io.to(roomId).emit('user-disconnected', userId);
+        // })
     })
 })
+
 
 server.listen(port);
