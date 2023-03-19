@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const server = require('http').Server(app);
+const server = require('node:http').Server(app);
 const { v4: uuidv4 } = require('uuid');
 const io = require('socket.io')(server);
 const port = 4444;
