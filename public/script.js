@@ -4,6 +4,7 @@ const myVideo = document.getElementById('video2');
 // myVideo.muted = false;
 var doctor;
 var patient;
+let theme = "light";
 // let peer;
 // let doc_pat = prompt('doctor or patient?');
 let id ;
@@ -96,13 +97,18 @@ $('html').keydown((e) => {
 
 socket.on('createMessage', (message,senderId) => {
     console.log('this is coming from server',  message);
-    if (senderId == id){
-        $('#messages').append(`<div class='message' id='${i}' ><span id="userId">You</span><hr><p>${message}</p></div>`)
-        document.getElementById(`${i}`).setAttribute('style', 'margin-left:15%; margin-right:5%; opacity:1');
+    if (senderId == id && theme == 'light'){
+        $('#messages').append(`<div class='message me' id='${i}' ><span>You</span><hr><p>${message}</p></div>`)
+    }
+    else if (senderId !== id && theme == 'light'){
+        $('#messages').append(`<div class='message you' id='${i}' ><span class="senderTitle" style="text-align:left">${senderId}</span><hr><p class="senderMsg" style="text-align:left">${message}</p></div>`)
+        // document.getElementById(`${i}`).setAttribute('style', 'opacity:1; border-radius:40px 40px 40px 0px;');
+    }
+    else if (senderId == id && theme == 'dark'){
+        $('#messages').append(`<div class='message me' style="background-color: #222; color:#ddd; opacity:1" id='${i}' ><span>You</span><hr><p>${message}</p></div>`)
     }
     else{
-        $('#messages').append(`<div class='message' id='${i}' ><span id="userId">${senderId}</span><hr><p>${message}</p></div>`)
-        document.getElementById(`${i}`).setAttribute('style', 'opacity:1');
+        $('#messages').append(`<div class='message you' id='${i}' style="background-color: lightblue; color:white; opacity:1"><span class="senderTitle" style="text-align:left">${senderId}</span><hr><p class="senderMsg" style="text-align:left">${message}</p></div>`)
     }
     i++; 
 })
@@ -169,3 +175,45 @@ const toggleAudio = () => {
   
 //   showCallContent();
 // });
+const setMoonIcon = () => {
+    document.getElementById("themeImg").setAttribute("class","fa-solid fa-moon");
+    // document.getElementById("themeImg").setAttribute("class","fa-solid fa-moon");
+}
+const setSunIcon = () => {
+    document.getElementById("themeImg").setAttribute("class","fa-solid fa-sun");
+}
+
+const toggleTheme = () => {
+    if (theme == "light"){
+        document.getElementsByTagName("body")[0].setAttribute("style","background-image: url('https://wallpapertag.com/wallpaper/full/a/f/1/447078-medical-desktop-backgrounds-1920x1200-free-download.jpg')");
+        if (document.getElementById("chatdiv").style.width !== "25%")
+        document.getElementById("chatdiv").setAttribute("style","background-color: black; width:0%");
+        else
+        document.getElementById("chatdiv").setAttribute("style","background-color: black; width:25%");
+        document.getElementById("chatTitle").setAttribute("style","background-color: #222; color: #ddd");
+        document.getElementById("message").setAttribute("style", "background-color: #222; color:#ddd");
+        document.getElementById('waiting').setAttribute("src", "https://i.giphy.com/media/l0HlA96OHn6pgUaQw/giphy.webp")
+        document.getElementsByTagName('header')[0].setAttribute("style","background-color: #222");
+        for (let i = 0; i < document.getElementsByClassName('message').length; i++){
+            document.getElementsByClassName('message')[i].setAttribute("style","background-color: #222; color:#ddd; opacity:1")
+        }
+        setMoonIcon();
+        theme = "dark";
+    }
+    else{
+        document.getElementsByTagName("body")[0].setAttribute("style","background-image: url('https://wallpapercave.com/wp/wp2595609.jpg')");
+        if (document.getElementById("chatdiv").style.width !== "25%")
+        document.getElementById("chatdiv").setAttribute("style","background-color: white; width:0%");
+        else
+        document.getElementById("chatdiv").setAttribute("style","background-color: white; width:25%");
+        document.getElementById("chatTitle").setAttribute("style","background-color: lightblue; color: white");
+        document.getElementById("message").setAttribute("style", "background-color: #fff;");
+        document.getElementById('waiting').setAttribute("src", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/129d4371043491.5bb79229cf4cb.gif")
+        document.getElementsByTagName('header')[0].setAttribute("style","background-color: #fff");
+        for (let i = 0; i < document.getElementsByClassName('message').length; i++){
+            document.getElementsByClassName('message')[i].setAttribute("style","background-color: lightblue; color:white; opacity:1")
+        }
+        setSunIcon();
+        theme = "light";
+    }
+}

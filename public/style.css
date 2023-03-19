@@ -3,11 +3,33 @@
     padding:0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius:5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #bbb; 
+    border-radius:5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 body{
     display: block;
     position: relative;
     overflow: hidden;
     background-image: url("https://wallpapercave.com/wp/wp2595609.jpg");
+    background-size: 150%;
+    /* background-image: url("https://wallpapertag.com/wallpaper/full/a/f/1/447078-medical-desktop-backgrounds-1920x1200-free-download.jpg"); */
     background-size:cover;
     background-repeat: no-repeat;
 }
@@ -47,14 +69,14 @@ i{
 #chatdiv{
     width:0px;
     position: relative;
-    /* background-color: white ; */
+    background-color: white ;
     height :inherit;
     display: block;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     border-radius  : 25px 25px 20px 20px;
     transition: width 0.5s;
     overflow: hidden;
-    background-image: url('https://th.bing.com/th/id/OIP.zcJU4cENEUkVjpA12_UrVQHaNK?pid=ImgDet&rs=1');
+    /* background-image: url('https://th.bing.com/th/id/OIP.zcJU4cENEUkVjpA12_UrVQHaNK?pid=ImgDet&rs=1'); */
 }
 #chatTitle{
     position: absolute;
@@ -85,6 +107,9 @@ input{
     border-radius: 20px;
     height: 40px;
     padding: 0 5%;
+    border: none;
+    border-top: 1px solid black !important;
+    /* background-color: #eee; */
 }
 video{
     object-fit : cover;
@@ -124,7 +149,7 @@ video{
     display : none;
     position : absolute;
     justify-content: center;
-    width : 50%;
+    width : 60%;
     bottom : 25px;
     padding : 0 5%;
     margin-bottom: 0;
@@ -168,6 +193,10 @@ img{
     position: absolute;
     bottom: 50px;
     width : 100%;
+    overflow-y: scroll;
+    max-height : 65vh;
+    scrollbar-color: grey;
+    scrollbar-width: 10px;
 }
 #disconnect{
     color : red;
@@ -181,15 +210,19 @@ img{
 #download{
     color : darkblue;
 }
+#theme{
+    color:orange;;
+}
 .message{
     max-width :80%;
     width  :auto;
     margin-left:5%;
     margin-right : 15%;
-    background-color:blue;
+    background-color:lightblue;
     color:white;
     padding:4%;
-    border-radius : 40px;
+    /* border-radius : 40px; */
+    /* border: 1px solid black; */
     margin-bottom : 2%;
     word-wrap: break-word;
     opacity:0;
@@ -207,4 +240,14 @@ span,p{
 } */
 hr{
     margin: 1% 0px;
+}
+.me{
+    margin-left:15%; 
+    margin-right:5%; 
+    opacity:1; 
+    border-radius:40px 40px 0px 40px;
+}
+.you{
+    opacity:1; 
+    border-radius:40px 40px 40px 0px;
 }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <!-- <link rel="stylesheet" href="StyleBeforeChat.css"> -->
     <script src="http://localhost:4444/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="peerjs.min.js"></script>
@@ -55,7 +56,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     <div id="videoWrapper">
     
     <div id="video-grid">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/129d4371043491.5bb79229cf4cb.gif" >
+        <img id="waiting" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/129d4371043491.5bb79229cf4cb.gif" >
         <video id="video1">
         </video>
         <video id="video2">
@@ -69,7 +70,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         <div id="audio" title="Mute Audio"><i id="audioImg" onclick="toggleAudio()" class="fa-solid fa-microphone"></i></div>
         <div id="video" title="Stop Video" ><i id="videoImg" onclick="toggleVideo()" class="fa-solid fa-video"></i></div>
         <div id="chat" title="Enable Chat" ><i id='chatImg' onclick="toggleChat()" class="fa-solid fa-comment"></i></div>
-        <div id="download" title="Download Prescription"><i class="fa-solid fa-file-prescription"></i></div>
+        <div id="download" title="Download Prescription"><i onclick="toggleTheme()" class="fa-solid fa-file-prescription"></i></div>
+        <div id="theme" title="Switch to Dark Mode"><i id="themeImg" onclick="toggleTheme()" class="fa-solid fa-sun"></i></div>
         <!-- <div id="pay">pay</div> -->
     </div>
     </div>
@@ -95,4 +97,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     
 </body>
 <script type="text/javascript" src="script.js"></script>
+<script>
+    toggleTheme();
+</script>
 </html>
